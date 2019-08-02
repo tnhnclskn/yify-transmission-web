@@ -9,7 +9,7 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search Term" autofocus>
+                <input class="form-control" type="text" name="term" placeholder="Search Term" autofocus>
               </div>
             </div>
             <div class="col-md-3">
@@ -98,5 +98,17 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="row justify-content-md-center">
+@if(!movies.length)
+  <div class="col-md-8">
+    <div class="alert alert-warning" role="alert">
+      No results found with this query.
+    </div>
+  </div>
+@else
+  @!each(movie in movies, include = 'partials.movie')
+@endif
 </div>
 @endsection
