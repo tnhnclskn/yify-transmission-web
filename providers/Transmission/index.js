@@ -1,19 +1,18 @@
 'use strict'
 
-const YifyClient = require('yts-client')
+const TransmissionClient = require('transmission')
 
-class Queue {
+class Transmission {
   constructor (Config) {
-    this.Config = Config
-    this.client = new YifyClient()
+    this.Config = Config.get('transmission')
+    this.client = new TransmissionClient(this.Config)
   }
 
-  find(options) {
-      return new Promise((resolve, reject) => this.client
-        .find(options,
-            (error, response) => error ? reject(error) : resolve(response))
-      )
+  addHash(hash, options = {}) {
+      return new Promise((resolve, reject) => this.client.addUrl('magnet:?xt=urn:btih:' + hash, {
+          'download-dir': this.Config.downloadPath
+      }, (error, response) => error ? reject(error) : resolve(response)))
   }
 }
 
-module.exports = Queue
+module.exports = Transmission

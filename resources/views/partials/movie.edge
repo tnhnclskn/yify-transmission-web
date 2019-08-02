@@ -7,7 +7,7 @@
                 Youtube Trailer
             </a>
             @each(torrent in movie.torrents)
-                <a href="{{ route('download', torrent.hash) }}" class="btn btn-block btn-primary">
+                <a href="{{ route('download', torrent) }}" class="btn btn-block btn-primary">
                     {{ torrent.quality }} ({{ torrent.type }})
                 </a>
             @endeach

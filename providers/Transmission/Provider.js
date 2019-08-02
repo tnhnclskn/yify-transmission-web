@@ -11,7 +11,7 @@ class Provider extends ServiceProvider {
    * @return {void}
    */
   register () {
-    this.app.singleton('Yify', () => {
+    this.app.singleton('Transmission', () => {
       const Config = this.app.use('Adonis/Src/Config')
       return new (require('.'))(Config)
     })
