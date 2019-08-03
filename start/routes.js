@@ -16,5 +16,5 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.get('/', 'HomepageController.index').as('homepage')
+Route.get('/', 'MovieController.index').as('homepage')
 Route.get('/download/:hash', 'DownloadController.download').as('download')
