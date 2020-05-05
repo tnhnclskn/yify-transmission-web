@@ -12,7 +12,117 @@
   </head>
   <body>
       <div class="container">
-            @!section('content')
+        <div class="row justify-content-md-center">
+          @if(flashMessage('success'))
+          <div class="col-md-8 my-3">
+            <div class="alert alert-success">{{ flashMessage('success') }}</div>
+          </div>
+          @endif
+
+          @if(flashMessage('error'))
+          <div class="col-md-8 my-3">
+            <div class="alert alert-danger">{{ flashMessage('error') }}</div>
+          </div>
+          @endif
+
+          <div class="col-md-8 my-3">
+            <div class="card">
+              <div class="card-body">
+                <form>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <input class="form-control" type="text" name="term" placeholder="Search Term" autofocus>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>Quality:</label>
+                        <select class="form-control" name="quality">
+                          <option value="all" selected="selected">All</option>
+                          <option value="720p">720p</option>
+                          <option value="1080p">1080p</option>
+                          <option value="3D">3D</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>Genre:</label>
+                        <select class="form-control" name="genre">
+                          <option value="all" selected="selected">All</option>
+                          <option value="action">Action</option>
+                          <option value="adventure">Adventure</option>
+                          <option value="animation">Animation</option>
+                          <option value="biography">Biography</option>
+                          <option value="comedy">Comedy</option>
+                          <option value="crime">Crime</option>
+                          <option value="documentary">Documentary</option>
+                          <option value="drama">Drama</option>
+                          <option value="family">Family</option>
+                          <option value="fantasy">Fantasy</option>
+                          <option value="film-noir">Film-Noir</option>
+                          <option value="game-show">Game-Show</option>
+                          <option value="history">History</option>
+                          <option value="horror">Horror</option>
+                          <option value="music">Music</option>
+                          <option value="musical">Musical</option>
+                          <option value="mystery">Mystery</option>
+                          <option value="news">News</option>
+                          <option value="reality-tv">Reality-TV</option>
+                          <option value="romance">Romance</option>
+                          <option value="sci-fi">Sci-Fi</option>
+                          <option value="sport">Sport</option>
+                          <option value="talk-show">Talk-Show</option>
+                          <option value="thriller">Thriller</option>
+                          <option value="war">War</option>
+                          <option value="western">Western</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>Rating:</label>
+                        <select class="form-control" name="rating">
+                          <option value="0" selected="selected">All</option>
+                          <option value="9">9+</option>
+                          <option value="8">8+</option>
+                          <option value="7">7+</option>
+                          <option value="6">6+</option>
+                          <option value="5">5+</option>
+                          <option value="4">4+</option>
+                          <option value="3">3+</option>
+                          <option value="2">2+</option>
+                          <option value="1">1+</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>Order By:</label>
+                        <select class="form-control" name="order_by">
+                          <option value="latest" selected="selected">Latest</option>
+                          <option value="oldest">Oldest</option>
+                          <option value="seeds">Seeds</option>
+                          <option value="peers">Peers</option>
+                          <option value="year">Year</option>
+                          <option value="rating">Rating</option>
+                          <option value="likes">Likes</option>
+                          <option value="alphabetical">Alphabetical</option>
+                          <option value="downloads">Downloads</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <button type="submit" class="btn btn-block btn-primary">Search</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        @!section('content')
       </div>
 
     <!-- Optional JavaScript -->

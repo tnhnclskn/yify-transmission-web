@@ -1,5 +1,7 @@
+.git
 node_modules
 .env
+.transmission
+docker-compose.yml
 database/development.sqlite
 downloads
-.transmission

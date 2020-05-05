@@ -1,16 +1,18 @@
-<div class="col-md-6">
+<div class="col-md-4 col-lg-3">
     <div class="card my-3">
         <img src="{{ movie.large_cover_image }}" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">{{ movie.title_long }}</h5>
-            <a href="https://youtu.be/{{ movie.yt_trailer_code }}" target="_blank" class="btn btn-block btn-danger">
-                Youtube Trailer
-            </a>
             @each(torrent in movie.torrents)
                 <a href="{{ route('download', torrent) }}" class="btn btn-block btn-primary">
                     {{ torrent.quality }} ({{ torrent.type }})
                 </a>
             @endeach
+            @if(movie.yt_trailer_code)
+            <a href="https://youtu.be/{{ movie.yt_trailer_code }}" target="_blank" class="btn btn-block btn-danger">
+                Youtube Trailer
+            </a>
+            @endif
         </div>
     </div>
 </div>

@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  yify:
+    build: .
+    ports:
+      - 8000:8000
+    env_file:
+      - .env
+  transmission:
+    image: linuxserver/transmission
+    environment:
+      - PUID=1000
+      - PGID=1000
+      # - TZ=Europe/London
+      # - TRANSMISSION_WEB_HOME=/combustion-release/ #optional
+      - USER=transmission #optional
+      - PASS=transmission #optional
+    volumes:
+      - ./.transmission:/config
+      - ./downloads:/downloads
+    ports:
+      - 9091:9091
+      - 51413:51413
+      - 51413:51413/udp
+    restart: unless-stopped
